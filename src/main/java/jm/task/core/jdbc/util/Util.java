@@ -68,7 +68,7 @@ public class Util {
         return configuration;
     }
 
-    private Configuration getMySqlHibernateConfiguration() {
+    private static Configuration getMySqlHibernateConfiguration() {
         String hostName = "localhost";
         String dbName = "pre-project";
         String userName = "root";
@@ -76,9 +76,6 @@ public class Util {
         return getMySqlHibernateConfiguration(hostName, dbName, userName,password);
     }
 
-    public Session getMySQLHibernateSession() {
-        return getSessionFactory().openSession();
-    }
 
     private static SessionFactory createSessionFactory(Configuration configuration) {
         StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder();
@@ -98,9 +95,5 @@ public class Util {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    public static void setHibernate_hbm2ddl_auto(String value) {
-        hibernate_hbm2ddl_auto = value;
     }
 }
